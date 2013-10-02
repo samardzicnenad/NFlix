@@ -1,0 +1,72 @@
+0)
+DROP SCHEMA `nflix`;
+
+1)
+CREATE SCHEMA `nflix`;
+
+2a)
+delimiter $$
+
+CREATE TABLE `nflix`.`user` (
+  `idUser` int(10) UNSIGNED AUTO_INCREMENT,
+  `Age` int(3) DEFAULT NULL,
+  `Sex` varchar(1) DEFAULT NULL,
+  `Occupation` varchar(45) DEFAULT NULL,
+  `ZIP` varchar(10) DEFAULT NULL,
+  `Username` varchar(15) NOT NULL,
+  `Password` varchar(15) NOT NULL,
+  PRIMARY KEY (`idUser`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8$$
+
+2b)
+LOAD DATA LOCAL INFILE "C:\\u.user" INTO TABLE nflix.user FIELDS TERMINATED BY "|";
+
+3a)
+delimiter $$
+
+CREATE TABLE `nflix`.`movie` (
+  `idMovie` int(10) UNSIGNED AUTO_INCREMENT,
+  `Title` text,
+  `RelDate` varchar(12) DEFAULT NULL,
+  `VidRelDate` varchar(12) DEFAULT NULL,
+  `urlIMDB` text,
+  `Unknown` tinyint(4) DEFAULT '0',
+  `Action` tinyint(4) DEFAULT '0',
+  `Adventure` tinyint(4) DEFAULT '0',
+  `Animation` tinyint(4) DEFAULT '0',
+  `Children's` tinyint(4) DEFAULT '0',
+  `Comedy` tinyint(4) DEFAULT '0',
+  `Crime` tinyint(4) DEFAULT '0',
+  `Documentary` tinyint(4) DEFAULT '0',
+  `Drama` tinyint(4) DEFAULT '0',
+  `Fantasy` tinyint(4) DEFAULT '0',
+  `Film-Noir` tinyint(4) DEFAULT '0',
+  `Horror` tinyint(4) DEFAULT '0',
+  `Musical` tinyint(4) DEFAULT '0',
+  `Mystery` tinyint(4) DEFAULT '0',
+  `Romance` tinyint(4) DEFAULT '0',
+  `Sci-Fi` tinyint(4) DEFAULT '0',
+  `Thriller` tinyint(4) DEFAULT '0',
+  `War` tinyint(4) DEFAULT '0',
+  `Western` tinyint(4) DEFAULT '0',
+  PRIMARY KEY (`idMovie`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8$$
+
+3b)
+LOAD DATA LOCAL INFILE "C:\\u.item" INTO TABLE nflix.movie CHARACTER SET UTF8 FIELDS TERMINATED BY "|";
+
+4a)
+delimiter $$
+
+CREATE TABLE `nflix`.`rating` (
+  `idUser` int(10) UNSIGNED NOT NULL,
+  `idMovie` int(10) UNSIGNED NOT NULL,
+  `Rating` float NOT NULL,
+  `TimeStamp` varchar(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8$$
+
+4b)
+LOAD DATA LOCAL INFILE "C:\\u.data" INTO TABLE nflix.rating FIELDS TERMINATED BY '\t';
+
+4c)
+ALTER TABLE `nflix`.`rating` ADD COLUMN `idRating` INT(10) UNSIGNED AUTO_INCREMENT FIRST , ADD PRIMARY KEY (`idRating`);

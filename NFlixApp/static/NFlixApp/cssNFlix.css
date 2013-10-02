@@ -1,0 +1,268 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/* End for http://meyerweb.com/eric/tools/css/reset/ */
+
+/* MAIN   
+----------------------------------------------------------*/
+body
+{
+    color: #FF4000;
+    font-size: .85em;
+    font-weight: bold;
+    font-family: Verdana, Helvetica, Sans-Serif;
+    padding: 0;
+
+    background-image: url("/static/NFlixApp/FilmReel.jpg");
+    background-repeat:no-repeat;
+    background-size: 100%;
+}
+a:link
+{
+    color: #E0AB0C;
+    text-decoration: none;
+}
+a:visited
+{
+    color: #E0AB0C;
+}
+a:hover
+{
+    color: #DD15AE;
+    text-decoration: none;
+}
+a:active
+{
+    color: #FF4000;
+}
+p, ul
+{
+    margin-bottom: 15px;
+    line-height: 1.6em;
+}
+
+/* HEADINGS   
+----------------------------------------------------------*/
+h1, h2, h3, h4
+{
+    color: #DF0174;
+    font-family: Verdana, Helvetica, Sans-Serif;
+}
+h1
+{
+    font-size: 1.75em;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+h2
+{
+    font-size: 1.5em;
+    padding: 0 0 10px 0;
+}
+h3
+{
+    font-size: 1.1em;
+    font-weight: bold;
+}
+h4
+{
+    font-size: 0.95em;
+}
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+.page
+{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#header
+{
+    position: relative;
+    margin-bottom: 0px;
+    padding: 0;
+}
+#header h1
+{
+    font-family: Verdana, Helvetica, Sans-Serif;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 5px 0;
+    margin: 0;
+    border: none;
+    line-height: 1.75em;
+    color: #0D8DB1;
+}
+#main
+{
+    background-color: rgba(255,255,255,0.75);
+    padding: 0px 30px 15px 30px;
+    margin-bottom: 30px;
+    margin-top: 50px;
+}
+.indent50
+{
+    padding-left: 50px;
+}
+
+/* FORM LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+fieldset 
+{
+    margin: 1em 0;
+    padding: 1em;
+    border: 1px solid #CCC;
+}
+fieldset p 
+{
+    margin: 2px 12px 10px 10px;
+}
+legend 
+{
+    font-weight: 600;
+    padding: 2px 4px 8px 4px;
+}
+input[type="text"] 
+{
+    width: 200px;
+    background-color: #E0ECF8;
+    color: #4D4C4A;
+}
+input[type="password"] 
+{
+    width: 200px;
+    background-color: #E0ECF8;
+    color: #4D4C4A;
+}
+input[type="submit"] 
+{
+    color: #2469AE;
+    font-weight: bold;
+    border-color: #0080FF;
+    border-width: 1px;
+    border-radius: 3px;
+}
+select
+{
+    border-left-width: 2px;
+    border-left-color: #9A9A9A;
+    border-top-width: 2px;
+    border-top-color: #9A9A9A;
+    border-right-width: 2px;
+    border-right-color: #EEEEEE;
+    border-bottom-width: 2px;
+    border-bottom-color: #EEEEEE;
+    background-color: #E0ECF8;
+    color: #4D4C4A;
+}
+
+/* TABLE
+----------------------------------------------------------*/
+table 
+{
+  border: solid 1px #e8eef4;
+  width: 100%;
+}
+table td 
+{
+  padding: 5px;   
+  border: solid 1px #e8eef4;
+  border: none;
+}
+table th
+{
+  padding: 6px 5px;
+  text-align: left;
+  background-color: #e8eef4; 
+  border: solid 1px #e8eef4;   
+}
+table tbody tr .pix20
+{
+  width: 20px;
+}
+table tbody tr .pix150
+{
+  width: 150px;
+}
+table tbody tr td input[type="submit"]
+{
+  width: 22px;
+}
+
+/* Styles for editor and display helpers
+----------------------------------------------------------*/
+.display-label, .editor-label, .display-field, .editor-field
+{
+    margin: 0.5em 0;
+}
+.Instructions
+{
+    font-weight: normal;
+    font-size: 12px;
+    color: #0B570B;
+}
+
+/* MISC  
+----------------------------------------------------------*/
+.left
+{
+    display:block;
+    float:left;
+    text-align:left;
+    width: 47%;
+}
+.right
+{
+    display:block;
+    float:right;
+    text-align:left;
+    width: 47%;
+}
+#menucontainer
+{
+    display:inline;
+    float:right;
+}
+#footer
+{
+    position: fixed;
+    left: 50%;
+    margin-left: -265px;
+    bottom: 0px;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% load staticfiles %}
+		<title>NFlix</title>
+		<link href="{% static "NFlixApp/cssNFlix.css" %}" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+	    <div class="page">
+	        <div id="main">
+		        <div id="header">
+		            <div id="title">
+		                <h1><a href="https://github.com/samardzicnenad" target="_blank"><img src="{% static "NFlixApp/Logo.jpeg" %}" alt="Logo img"/></a> NFlix movie recommendation engine</h1>
+		            </div>
+		        </div>
+			    <h3 class="indent50">Log on to an existing account</h3>
+			    <br />
+			    <p class="indent50">
+			        {{ note }} <a href="/NFlixApp/register">Register</a> if you don't have an account.
+			    </p>
+			    <form action="/NFlixApp/" method="post">
+			        <div>
+			            <fieldset>
+			                <legend>Account Information</legend>
+			                <div class="editor-label">
+			                    <label for="UserName">User name</label>
+			                </div>
+			                <div class="editor-field">
+			                    <input id="UserName" name="UserName" type="text" placeholder="Enter a username" value="{{username}}" autofocus="autofocus" />
+			                </div>
+			                <div class="editor-label">
+			                    <label for="Password">Password</label>
+			                </div>
+			                <div class="editor-field">
+			                    <input id="Password" name="Password" type="password" placeholder="Enter a password" />
+			                </div>
+			                <p>
+			                    <input type="submit" value="Log On" />
+			                </p>
+			            </fieldset>
+			        </div>
+			        {% csrf_token %}
+			    </form>
+	        </div>
+	    </div>
+	    <div id="footer">
+	    	<a href="http://www.thehackerati.com/" target="_blank"><img src="{% static "NFlixApp/hackerati.png" %}" alt="The Hackerati"/></a><img src="{% static "NFlixApp/Separator.png" %}"/><a href="http://movielens.org/login/" target="_blank"><img src="{% static "NFlixApp/movielens.png" %}" alt="MovieLens"/></a><img src="{% static "NFlixApp/Separator.png" %}"/><a href="http://www.netflix.com/" target="_blank"><img src="{% static "NFlixApp/netflix.png" %}" alt="Netflix"/></a>
+		</div>
+	</body>
+</html>

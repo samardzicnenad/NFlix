@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% load staticfiles %}
+		<title>NFlix</title>
+		<link href="{% static "NFlixApp/cssNFlix.css" %}" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+	    <div class="page">
+	        <div id="main">
+		        <div id="header">
+		            <div id="title">
+		                <h1><a href="https://github.com/samardzicnenad" target="_blank"><img src="{% static "NFlixApp/Logo.jpeg" %}" alt="Logo img"/></a> NFlix movie recommendation engine</h1>
+		            </div>
+		            <div id="menucontainer">
+		                <a href="/NFlixApp/recs">Rate movies</a>
+		            </div>
+		        </div>
+			    <h3 class="indent50">Welcome {{ username }}! Your ID is {{ idUser }}</h3>
+			    <p>
+			    	<div id="menucontainer">
+		            	<a href="/NFlixApp/">Sign out</a>
+		        	</div>
+		        </p>
+			    <p>
+			    	<h3 class="indent50">Get movie recommendations</h3>
+				</p>
+			    <form action="/NFlixApp/receng/" method="post">
+			        <div>
+			            <fieldset>
+			                <legend>Movie recommendations</legend>
+							<h4>Calculate movie recommendations for the user with ID: <input id="UserName" name="UserName" type="text" placeholder="Enter a user's id" value="{{ searchuser }}" autofocus="autofocus" /></h4>
+			            </fieldset>
+			                <p>
+			                    <input type="submit" value="Recommend" />
+			                </p>
+			        </div>
+					{% if response %}
+						<p>
+							<h3>Top 25 movies for the user with ID {{ searchuser }}:</h3>
+						</p>
+						<table id="id_list_table">
+							<thead>
+								<tr>
+									<th></th>
+									<th>Movie name and year</th>
+									<th>Rating prognosis</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for movie, rating in response %}
+								<tr>
+									<td class="pix20"><img src="{% static "NFlixApp/ReelIcon.png" %}" alt="Logo img"/></td><td>{{ movie }}:</td> <td class="pix150">{{ rating }}</td>
+								</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					{% else %}
+						<p>
+							{{ note }}
+						</p>
+					{% endif %}
+			        {% csrf_token %}
+			    </form>
+	        </div>
+	    </div>
+	    <div id="footer">
+	    	<a href="http://www.thehackerati.com/" target="_blank"><img src="{% static "NFlixApp/hackerati.png" %}" alt="The Hackerati"/></a><img src="{% static "NFlixApp/Separator.png" %}"/><a href="http://movielens.org/login/" target="_blank"><img src="{% static "NFlixApp/movielens.png" %}" alt="MovieLens"/></a><img src="{% static "NFlixApp/Separator.png" %}"/><a href="http://www.netflix.com/" target="_blank"><img src="{% static "NFlixApp/netflix.png" %}" alt="Netflix"/></a>
+		</div>
+	</body>
+</html>

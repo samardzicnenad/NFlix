@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% load staticfiles %}
+		<title>NFlix</title>
+		<link href="{% static "NFlixApp/cssNFlix.css" %}" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+	    <div class="page">
+	        <div id="main">
+		        <div id="header">
+		            <div id="title">
+		                <h1><a href="https://github.com/samardzicnenad" target="_blank"><img src="{% static "NFlixApp/Logo.jpeg" %}" alt="Logo img"/></a> NFlix movie recommendation engine</h1>
+		            </div>
+		        </div>
+			    <h3 class="indent50">Create a new account</h3>
+			    <br />
+			    <p class="indent50">
+			    	{{ note }} or <a href="/NFlixApp/">go back</a> to a log on page.
+			    </p>
+			    <form action="/NFlixApp/register/" method="post">
+			        <div>
+			        	<fieldset>
+			        		<legend>Registration form</legend>
+				            <fieldset class="left">
+				                <legend>Account Information</legend>
+				                <div class="editor-label">
+				                    <label for="UserName">User name</label>
+				                </div>
+				                <div class="editor-field">
+				                    <input id="UserName" name="UserName" type="text" placeholder="Enter a username" value="{{username}}" autofocus="autofocus" />
+				                </div>
+				                <div class="editor-label">
+				                    <label for="Password">Password</label>
+				                </div>
+				                <div class="editor-field">
+				                    <input id="Password" name="Password" type="password" placeholder="Enter a password" />
+				                </div>
+				                <div class="editor-label">
+				                    <label for="ConfirmPassword">Confirm password</label>
+				                </div>
+				                <div class="editor-field">
+				                    <input id="ConfirmPassword" name="ConfirmPassword" type="password" placeholder="Re-enter the password" />
+				                </div>
+				            </fieldset>
+				            <fieldset class="right">
+				                <legend>Personal Information</legend>
+				                <div class="editor-label">
+				                    <label for="Age">Age</label>
+				                </div>
+				                <div class="editor-field">
+				                    <input id="Age" name="Age" type="text" placeholder="Enter your age" value="{{age}}" />
+				                </div>
+				                <div class="editor-label">
+				                    <label for="Sex">Sex</label>
+				                </div>
+				                <div class="editor-field">
+								    <select id="Sex" name="Sex">
+								    {% for sexL, sex in sexlist %}
+								        <option value="{{sexL}}"
+								        	{% if sexL == ssex %}
+								        		selected
+								        	{% endif %}> {{sex}} </option>
+								    {% endfor %}
+								    </select>
+				                <div class="editor-label">
+				                    <label for="Occupation">Occupation</label>
+				                </div>
+				                <div class="editor-field">
+				                    <input id="Occupation" name="Occupation" type="text" placeholder="Enter your occupation"  value="{{occupation}}" />
+				                </div>
+				                <div class="editor-label">
+				                    <label for="ZIP">ZIP</label>
+				                </div>
+				                <div class="editor-field">
+				                    <input id="ZIP" name="ZIP" type="text" placeholder="Enter your ZIP code" value="{{zip_code}}"/>
+				                </div>
+				            </fieldset>
+				            <p>
+				                <input type="submit" value="Register" />
+				            </p>
+			            </fieldset>
+			        </div>
+			        {% csrf_token %}
+			    </form>
+	        </div>
+	    </div>
+	    <div id="footer">
+	    	<a href="http://www.thehackerati.com/" target="_blank"><img src="{% static "NFlixApp/hackerati.png" %}" alt="The Hackerati"/></a><img src="{% static "NFlixApp/Separator.png" %}"/><a href="http://movielens.org/login/" target="_blank"><img src="{% static "NFlixApp/movielens.png" %}" alt="MovieLens"/></a><img src="{% static "NFlixApp/Separator.png" %}"/><a href="http://www.netflix.com/" target="_blank"><img src="{% static "NFlixApp/netflix.png" %}" alt="Netflix"/></a>
+		</div>
+	</body>
+</html>
